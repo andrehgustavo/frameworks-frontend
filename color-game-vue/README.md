@@ -1,12 +1,35 @@
-# Color Game VUE
+# Color Game Vue
 Universidade Federal do Rio Grande do Norte Instituto Metrópole Digital Tópicos Especiais Em Engenharia de Software I • DIM0531
 
-# PROJECT
+## PROJECT
 Color Game Vue
 
-# Developer
+## Developer
  - Andre Gustavo C. M. de Barros
  - Fabricio Enric Smith F. Silva
 
-# Intro
+## Intro
 In this programming project, we coded a game in which you need to press a button that indicates the right color of the word, not what is written. You have 5 seconds to press a button, if you choose the right one, you get more 5 seconds. The game stops if you do nothing or choose the wrong color.
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
