@@ -1,8 +1,8 @@
-# Color Game Vue
+# Color Game
 Universidade Federal do Rio Grande do Norte Instituto Metrópole Digital Tópicos Especiais Em Engenharia de Software I • DIM0531
 
 ## Project
-Color Game Vue
+Color Game
 
 ## Developer
  - Andre Gustavo C. M. de Barros
