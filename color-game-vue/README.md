@@ -6,7 +6,7 @@ Color Game Vue
 
 ## Developer
  - Andre Gustavo C. M. de Barros
- - Fabricio Enric Smith F. Silva
+ - Carla Joice dos Santos
 
 ## Framework
   Vue
