@@ -65,9 +65,9 @@ class Game extends React.Component {
 
         this.state = {
             showResults: false,
-            correctAnswersNumber: 0,
-            correctWrongAnswer: '',
-            currentAskIndex: 0,
+            playerHits: 0,
+            rightColor: '',
+            currentColor: 0,
             isToAddTime: false
         }
     }
@@ -84,29 +84,31 @@ class Game extends React.Component {
 
     /**
      * Método chamado ao apertar um botão de opção, se acertar o usuário ganha tempo, +1 ponto de acerto
-     * e mostrará a próxima sentença. Caso contrário, a tela de de final de resultados é msotrada
-     * @param {*} color Cor da Opção Correta, option Opção que o Usuário resolveu clicar
+     * e mostrará a próxima sentença. Caso contrário, a tela de de final de resultados é mostrada
+     * @param {*} rightColor Cor da Opção Correta
+     * @param {*} userOption Opção que o Usuário resolveu clicar
      */
-    next = (color, option) => {
+    next = (rightColor, userOption) => {
 
-        if(color.colorName === option) {
-                
-            if(this.state.currentAskIndex < this.sentences.length-1) {
+        if(rightColor.colorName === userOption) {
+            console.log("this.state.currentColor:" + this.state.currentColor )
+            console.log("this.sentences.length-1:" + parseInt(this.sentences.length-1) )
+            if(this.state.currentColor < this.sentences.length-1) {
 
                 this.setState({
                     
-                    correctAnswersNumber: this.state.correctAnswersNumber + 1,
-                    currentAskIndex: Math.floor(Math.random() * 9),
+                    playerHits: this.state.playerHits + 1,
+                    currentColor: Math.floor(Math.random() * 9),
                     isToAddTime: true
                 })
             }
 
             else {
-
+                console.log("entrou")
                 this.setState({
 
-                    correctAnswersNumber: this.state.correctAnswersNumber + 1,
-                    currentAskIndex: 0,
+                    playerHits: this.state.playerHits + 1,
+                    currentColor: 0,
                     isToAddTime: true
                 })
             }
@@ -117,33 +119,33 @@ class Game extends React.Component {
             this.setState({
 
                 showResults: true,
-                correctWrongAnswer: color.colorName
+                rightColor: rightColor
             })
         }
     }
 
     /**
      * Método chamado assim que o temporizador chegar a zero. Mostra a tela de resultados
-     * @param {*} color 
+     * @param {*} rightColor 
      */
-    timeOver = (color) => {
+    timeOver = (rightColor) => {
 
         this.setState({
             showResults: true,
-            correctWrongAnswer: color.colorName
+            rightColor: rightColor
         })
     }
 
     render() {
-
+        
         //Constante que armazena o que será mostrado na tela, se o game continua ou se já acabou
         const showResultsOrScreen = this.state.showResults ? 
         <Results 
-            correctWrongAnswer={this.state.correctWrongAnswer} 
-            correctAnswersNumber={this.state.correctAnswersNumber}>
+            rightColor={this.state.rightColor} 
+            playerHits={this.state.playerHits}>
         </Results> : 
         <Screen 
-            currentAsk={this.sentences[this.state.currentAskIndex]}
+            currentAsk={this.sentences[this.state.currentColor]}
             stopAddTime={this.stopAddTime} 
             nextFunction={this.next}
             timeOver={this.timeOver}

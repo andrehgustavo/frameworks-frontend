@@ -13,8 +13,8 @@ function Results(props) {
         
         <div>
             <div>
-                <h3>The right answer is: <span style={{color: props.correctWrongAnswer.toLowerCase()}}>{props.correctWrongAnswer}</span></h3>
-                <h3>Hits: {props.correctAnswersNumber}</h3>                
+                <h3>The right answer is: <span style={{color: props.rightColor.colorNumber}}>{props.rightColor.colorName}</span></h3>
+                <h3>Hits: {props.playerHits}</h3>                
             </div>
             <div>
                 <button onClick={refreshPage}>Reiniciar o jogo</button>
