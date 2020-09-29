@@ -66,7 +66,7 @@ function Screen(props) {
         colorNumber: "#FF1493"
       },
     ]
-
+    
     /**
      * Método para gerar botões clicáveis para cada uma das opções
      */
@@ -91,7 +91,7 @@ function Screen(props) {
                 {options}
             </div> 
             <div>
-                <Timer timeOver={() => props.timeOver(colors[0])} isToAddTime={props.isToAddTime} stopAddTime={props.stopAddTime} />
+                <Timer timeOver={() => props.timeOver(colors[0])} hasTime={props.hasTime} stopAddTime={props.stopAddTime} />
             </div>
         </div>
     );
