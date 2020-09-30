@@ -91,7 +91,7 @@ function Screen(props) {
                 {options}
             </div> 
             <div>
-                <Timer timeOver={() => props.timeOver(colors[0])} hasTime={props.hasTime} stopAddTime={props.stopAddTime} />
+                <Timer timeOver={() => props.timeOver(colors[0])} resetTime={props.resetTime} stopResetTime={props.stopResetTime} />
             </div>
         </div>
     );

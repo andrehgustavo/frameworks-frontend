@@ -7,24 +7,23 @@ import React, { Component } from 'react'
  */
 export default class Timer extends Component {
     state = {
-        minutes: 0,
-        seconds: 5,
-        hasTime: true
+        seconds: 10
     }
 
     componentDidMount() {
 
-        this.myInterval = setInterval(() => {
-
-            const { seconds, minutes } = this.state
-            console.log(this.props.hasTime)
-            if(this.props.hasTime) {
-
+           this.myInterval = setInterval(() => {
+            
+            const { seconds } = this.state
+            console.log("resetTime:" + this.props.resetTime)
+            if(this.props.resetTime) {
+                console.log("Antes: " + this.props.resetTime)
                 this.setState({                    
-                    seconds : 6
+                    seconds : 10
                 })
                 
-                this.props.stopAddTime()
+                this.props.stopResetTime()
+                console.log("Depois: " + this.props.resetTime)
             }
 
             if (seconds > 0) {
@@ -40,7 +39,8 @@ export default class Timer extends Component {
                 clearInterval(this.myInterval)
             } 
 
-        }, 1000)
+            }, 1000)
+        //}
     }
 
     componentWillUnmount() {
@@ -49,13 +49,13 @@ export default class Timer extends Component {
     }
 
     render() {
-        const { minutes, seconds } = this.state        
+        const { seconds } = this.state        
         return (
             <div id="countdown">
                 {                
-                    minutes === 0 && seconds === 0
+                    seconds === 0
                         ? <h1>Game Over!</h1>
-                        : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                        : <h1>Time Remaining: {seconds < 10 ? `0${seconds}` : seconds}</h1>
                 }
             </div>
         )

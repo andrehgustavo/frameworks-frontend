@@ -4,6 +4,18 @@ import Results from './Results';
 import '../assets/css/game-style.css';
 
 class Game extends React.Component {
+    /**
+     * showResults - booleano - quando for positivo, o jogo mudará para a tela de resultados.
+     * playerHits - Somador de quantas vezes o jogador acertou.
+     * rightColor - Cor certa que está sendo mostrada em tela.
+     * resetTime - booleano - será positivo quando o jogador acertar uma cor, fazendo que o tempo seja reiniciado.
+     */
+    state = {
+        showResults: false,
+        playerHits: 0,
+        rightColor: '',
+        resetTime: false
+    };
 
     /**
      * Sentenças que aparacerão na tela do usuário, onde cada uma contem contem uma palavra que é o nome
@@ -56,23 +68,13 @@ class Game extends React.Component {
             options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
         }
     ]
-    constructor(props) {
-        super(props)
-        this.state = {
-            showResults: false,
-            playerHits: 0,
-            rightColor: '',
-            currentColor: 0,
-            hasTime: true
-        }
-    }
 
     /**
      * Método para parar o acréscimo de tempo ao acertar uma sentença
      */
-    stopAddTime = () => {
+    stopResetTime = () => {
         this.setState({
-            hasTime: false
+            resetTime: false
         })
     }
 
@@ -86,7 +88,7 @@ class Game extends React.Component {
         if (rightColor.colorName === userOption) {            
             this.setState({
                 playerHits: this.state.playerHits + 1,
-                hasTime: true
+                resetTime: true
             })
         }
         else {
@@ -96,13 +98,11 @@ class Game extends React.Component {
             })
         }
     }
-    /** Método chamado para escolher um número aleatório com base no número de cores do jogo.
-     * @param {*} número - a posição atual da cor na matriz (frases).
+    /** 
+     * Método chamado para escolher um número aleatório com base no número de cores do jogo.
      */
-    randomNumber = (number) => {
-        number = Math.floor(Math.random() * this.sentences.length);
-        this.currentColor = number;
-        return number;
+    randomNumber = () => {
+        return Math.floor(Math.random() * this.sentences.length)
     }
     /**
      * Método chamado assim que o temporizador chegar a zero. Mostra a tela de resultados
@@ -116,7 +116,6 @@ class Game extends React.Component {
     }
     
     render() {
-        console.log(this.state.currentColor)
         //Constante que armazena o que será mostrado na tela, se o game continua ou se já acabou
         const showResultsOrScreen = this.state.showResults ?
             <Results
@@ -124,11 +123,11 @@ class Game extends React.Component {
                 playerHits={this.state.playerHits}>
             </Results> :
             <Screen
-                currentAsk={this.sentences[this.randomNumber(this.state.currentColor)]}
-                stopAddTime={this.stopAddTime}
+                currentAsk={this.sentences[this.randomNumber()]}
+                stopResetTime={this.stopResetTime}
                 nextFunction={this.next}
                 timeOver={this.timeOver}
-                hasTime={this.state.hasTime}>
+                resetTime={this.state.resetTime}>
             </Screen>
         return (
             <div>
