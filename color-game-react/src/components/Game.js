@@ -24,50 +24,43 @@ class Game extends React.Component {
     sentences = [
         {
             colorName: 'BLUE',
-            colorNumber: "#0000FF",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#0000FF"
         },
         {
             colorName: 'GREEN',
-            colorNumber: "#7FFF00",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#7FFF00"
         },
         {
             colorName: 'YELLOW',
-            colorNumber: "#FFD700",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#FFD700"
         },
         {
             colorName: 'PURPLE',
-            colorNumber: "#4B0082",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#4B0082"
         },
         {
             colorName: "WHITE",
-            colorNumber: "#F8F8FF",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#F8F8FF"
         },
         {
             colorName: 'GREY',
-            colorNumber: "#696969",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#696969"
         },
         {
             colorName: 'ORANGE',
-            colorNumber: "#FF8C00",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#FF8C00"
         },
         {
             colorName: 'RED',
-            colorNumber: "#FF0000",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#FF0000"
         },
         {
             colorName: 'PINK',
-            colorNumber: "#FF1493",
-            options: ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
+            colorNumber: "#FF1493"
         }
     ]
+
+    options = ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
 
     /**
      * Método para parar o acréscimo de tempo ao acertar uma sentença
@@ -123,6 +116,7 @@ class Game extends React.Component {
                 playerHits={this.state.playerHits}>
             </Results> :
             <Screen
+                currentOptions={this.options}
                 currentAsk={this.sentences[this.randomNumber()]}
                 stopResetTime={this.stopResetTime}
                 nextFunction={this.next}

@@ -70,16 +70,18 @@ function Screen(props) {
     /**
      * Método para gerar botões clicáveis para cada uma das opções
      */
-    const options = props.currentAsk.options.map(option => {
+    const options = props.currentOptions.map(option => {
         return <button
             key={option}
             onClick= { () => props.nextFunction(colors[0], option) }
         >{option}</button>
     })
 
-    
+
     shuffle(colors)  
-    shuffle(options)
+    shuffle(options)      
+
+    
 
     return (
 
