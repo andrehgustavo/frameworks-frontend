@@ -7,7 +7,7 @@ import React, { Component } from 'react'
  */
 export default class Timer extends Component {
     state = {
-        seconds: 10
+        seconds: 5
     }
 
     componentDidMount() {
@@ -15,15 +15,12 @@ export default class Timer extends Component {
            this.myInterval = setInterval(() => {
             
             const { seconds } = this.state
-            console.log("resetTime:" + this.props.resetTime)
             if(this.props.resetTime) {
-                console.log("Antes: " + this.props.resetTime)
                 this.setState({                    
-                    seconds : 10
+                    seconds : 6
                 })
                 
                 this.props.stopResetTime()
-                console.log("Depois: " + this.props.resetTime)
             }
 
             if (seconds > 0) {
@@ -40,7 +37,6 @@ export default class Timer extends Component {
             } 
 
             }, 1000)
-        //}
     }
 
     componentWillUnmount() {

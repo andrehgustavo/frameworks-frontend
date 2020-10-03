@@ -2,7 +2,8 @@ import React from 'react';
 import Screen from './Screen';
 import Results from './Results';
 import '../assets/css/game-style.css';
-
+let playerHits= 0;
+let previousResetTime = true;
 class Game extends React.Component {
     /**
      * showResults - booleano - quando for positivo, o jogo mudará para a tela de resultados.
@@ -12,7 +13,6 @@ class Game extends React.Component {
      */
     state = {
         showResults: false,
-        playerHits: 0,
         rightColor: '',
         resetTime: false
     };
@@ -59,7 +59,7 @@ class Game extends React.Component {
             colorNumber: "#FF1493"
         }
     ]
-
+    random = 2;
     options = ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
 
     /**
@@ -78,11 +78,12 @@ class Game extends React.Component {
      * @param {*} userOption Opção que o Usuário resolveu clicar
      */
     next = (rightColor, userOption) => {
-        if (rightColor.colorName === userOption) {            
+        if (rightColor.colorName === userOption) {
+            playerHits++;
             this.setState({
-                playerHits: this.state.playerHits + 1,
                 resetTime: true
             })
+            previousResetTime = !this.state.resetTime;
         }
         else {
             this.setState({
@@ -107,25 +108,58 @@ class Game extends React.Component {
             rightColor: rightColor
         })
     }
-    
+    /**
+     * Método para "embaralhar" arrays
+     * @param {*} array 
+     */
+    shuffle(array) {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+
+        while (0 !== currentIndex) {
+
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(previousResetTime != this.state.resetTime){
+            this.options = this.shuffle(this.options)
+            this.sentences = this.shuffle(this.sentences)
+            this.random = this.randomNumber()
+        }
+    }
+    componentDidMount() {
+        this.options = this.shuffle(this.options)
+        this.sentences = this.shuffle(this.sentences)
+        this.random = this.randomNumber()
+    }
+
+
     render() {
         //Constante que armazena o que será mostrado na tela, se o game continua ou se já acabou
-        const showResultsOrScreen = this.state.showResults ?
-            <Results
-                rightColor={this.state.rightColor}
-                playerHits={this.state.playerHits}>
-            </Results> :
-            <Screen
-                currentOptions={this.options}
-                currentAsk={this.sentences[this.randomNumber()]}
-                stopResetTime={this.stopResetTime}
-                nextFunction={this.next}
-                timeOver={this.timeOver}
-                resetTime={this.state.resetTime}>
-            </Screen>
         return (
             <div>
-                {showResultsOrScreen}
+                
+                {this.state.showResults ?
+                    <Results
+                        rightColor={this.state.rightColor}
+                        playerHits={playerHits}/>
+                    :
+                    <Screen
+                        currentRightcolor={this.sentences[this.random]}
+                        currentOptions={this.options}
+                        displayedColorName={this.sentences[0]}
+                        stopResetTime={this.stopResetTime}
+                        nextFunction={this.next}
+                        timeOver={this.timeOver}
+                        resetTime={this.state.resetTime}/>
+                    }
             </div>
         );
     }
