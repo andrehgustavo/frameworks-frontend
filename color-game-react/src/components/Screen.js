@@ -14,6 +14,9 @@ function Screen(props) {
         >{option}</button>
     })
 
+/*     function changeColorScreen(params) {
+      document.body.style.backgroundColor = props.currentRightcolor.colorNumber
+    } */
 
     return (
 

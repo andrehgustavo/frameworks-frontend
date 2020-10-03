@@ -7,7 +7,6 @@ let previousResetTime = true;
 class Game extends React.Component {
     /**
      * showResults - booleano - quando for positivo, o jogo mudará para a tela de resultados.
-     * playerHits - Somador de quantas vezes o jogador acertou.
      * rightColor - Cor certa que está sendo mostrada em tela.
      * resetTime - booleano - será positivo quando o jogador acertar uma cor, fazendo que o tempo seja reiniciado.
      */
