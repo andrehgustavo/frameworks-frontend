@@ -3,22 +3,24 @@ body{
     padding: 0;
 }
 
-.cerebro-box{
-    width: 600px;
-    height: 600px;
+
+.container-img{
+    text-align: center;
+    line-height: 600px;
     border: 1px solid blue;
 }
+.container-img .center{
+    vertical-align: middle;
 
-#cerebro-image {
-    background: url("../assets/images/cerebro.png") no-repeat;
-    position: relative;
-    height: 500px;
+}
+
+img{
+    width: 50%;
 }
 
 section{
     overflow: hidden;
 }
-
 
 section:before{
     content: '';
@@ -42,7 +44,7 @@ section:before{
     }
     20%
     {
-        background: #fff;
+        background: linear-gradient(0deg, rgba(255,255,0,1) 0%, rgba(0,255,0,1) 100%);
     }
     30%
     {
