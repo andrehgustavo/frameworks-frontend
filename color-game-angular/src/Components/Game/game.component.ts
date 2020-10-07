@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component} from '@angular/core'
 
 
 @Component({
@@ -6,7 +6,7 @@ import { Component } from '@angular/core'
   template: 
   `<div> 
     <screen>   
-        [rightColor] = "sentences[randomNumber(currentColor)].colorNumber"
+        [rightColor] = "sentences[randomNumber(currentColor)].colorNumbers"
         [options] = "options"
         (select) = "onSelect($event)">
     </screen>

@@ -1,19 +1,26 @@
-import { Component, Input } from '@angular/core'
+import { Component ,OnInit, Input, Output, EventEmitter  } from '@angular/core'
 
 @Component({
   selector: 'screen',
   template: 
   `<div>   
-    <h2 style="{color: {{rightColor}} }"> shuffle({{options}})[0]  </h2>
-    <button *ngFor="opt in shuffle(options)": key="opt" (click)="selected(opt)"> {{opt}} </button>>
     <button (click)="teste()"> teste </button>
-    </div>
+    <h2 style="{color: {{rightColor}} }"> {{ shuffle(options)[0] }}  </h2>
+    <button *ngFor="opt in shuffle(options)": key="opt" (click)="selected(opt)"> {{opt}} </button>>
+  </div>
   `
 })
 
 export class ScreenComponent {
+
     @Input() rightColor: String;
     @Input() options: String[];
+    @Output() select = new EventEmitter()
+
+   constructor() { }
+    ngOnInit() {
+          console.log(this.rightColor);
+   }
 
     selected(option){
       console.log("você clicou em ", option);
@@ -34,6 +41,6 @@ export class ScreenComponent {
       return array;
     }
     teste(){
-      console.log(this.options)
+      console.log(this.rightColor)
     }
 }
