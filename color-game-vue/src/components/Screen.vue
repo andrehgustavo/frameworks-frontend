@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2 :style="{color: rightColor}">{{ shuffle(options)[0] }}</h2>
-    <button v-for="opt in shuffle(options)" :key="opt" @click="selected(opt)">{{ opt }}</button>
+    <h1 :style="{color: rightColor}">{{ shuffle(options)[0] }}</h1>
+    <button class="colorful-button" v-for="opt in shuffle(options)" :key="opt" @click="selected(opt)">{{ opt }}</button>
   </div>
 </template>
 

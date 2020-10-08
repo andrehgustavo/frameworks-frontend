@@ -21,12 +21,12 @@
             if (resetTime) {
                 seconds = 5;
                 resetTime = false;
-                dispatcher('teste', true)
+                dispatcher('stop', true)
             }
             if (seconds > 0) {
                 seconds = seconds - 1;
             }else{
-                dispatcher('selected', true)
+                dispatcher('noTime', true)
                 clearInterval(interval);
             }			
         }, 1000)
