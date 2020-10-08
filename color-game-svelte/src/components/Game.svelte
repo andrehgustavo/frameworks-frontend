@@ -106,7 +106,7 @@
         hasTime=false;
     }
 
-    function testReset(){
+    function stopResetTime(){
         resetTime=false;
     }
 
@@ -117,6 +117,6 @@
     <Results {rightColor} {playerHits}/>
 {:else}
     <Screen {options} {rightColor} on:userOption={next} />
-    <Timer {resetTime} on:selected={timeIsOver} on:teste={testReset}/>
+    <Timer {resetTime} on:noTime={timeIsOver} on:stop={stopResetTime}/>
 {/if}
 

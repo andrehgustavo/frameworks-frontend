@@ -1,63 +1,75 @@
-html, body {
-	position: relative;
-	margin: 0;
-	padding: 0;
-}
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
 body {
-	background-color: #282c34;
-	color: white;
-	padding: 40px;
-	font-family: Arial;
-	text-align: center;
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  font-family: 'Fjalla One', sans-serif;
+  text-transform: uppercase;
 }
 
-a {
-	color: rgb(0,100,200);
-	text-decoration: none;
+.colorful-button {
+  font-family: 'Fjalla One', sans-serif;
+  height: 50px;
+  width: 70px;
+  font-size: medium;
+  margin-right: 10px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  color: #111;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
 }
 
-a:hover {
-	text-decoration: underline;
+.colorful-button:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
 }
 
-a:visited {
-	color: rgb(0,80,160);
+.colorful-button:active {
+  color: #fff
 }
 
-label {
-	display: block;
+.colorful-button:active:after {
+  background: transparent;
 }
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+.colorful-button:hover:before {
+  opacity: 1;
 }
 
-input:disabled {
-	color: #ccc;
+.colorful-button:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
 }

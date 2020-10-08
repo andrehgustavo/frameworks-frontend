@@ -18,7 +18,7 @@ function Results(props) {
                 <h2>Hits: {props.playerHits}</h2>                
             </div>
             <div>
-                <button onClick={refreshPage}>Reiniciar o jogo</button>
+                <button className="colorful-button" onClick={refreshPage}>Reiniciar o jogo</button>
             </div>
         </div>
     )
