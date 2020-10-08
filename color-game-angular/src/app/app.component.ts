@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 
-
 @Component({
   selector: 'app-root',
-  template: '<game></game>',
-  styleUrls: ['./app.component.css']
+  template: '<game></game>'
 })
-export class AppComponent {}
+export class AppComponent{}
