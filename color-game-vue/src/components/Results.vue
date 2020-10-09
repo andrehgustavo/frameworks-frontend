@@ -4,7 +4,7 @@
     <h2>You hit: {{playerHits}}</h2>
 
     <div>
-      <button class="colorful-button" @click="refreshPage()">Reiniciar o jogo</button>
+      <button class="colorful-button" @click="refreshPage()">Restart Game</button>
     </div>
   </div>
 </template>

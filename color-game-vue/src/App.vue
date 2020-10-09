@@ -1,14 +1,14 @@
 <template>
-  <Game></Game>
+  <Home></Home>
 </template>
 
 <script>
-import Game from "./components/Game.vue";
+import Home from "./components/Home.vue";
 import "./assets/css/game-style.css";
 export default {
   name: "App",
   components: {
-    Game,
+    Home,
   },
 };
 </script>

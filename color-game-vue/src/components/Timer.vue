@@ -3,18 +3,18 @@
         
         <h2 v-if = "timerCount == 0" > GameOver {{timeIsOver()}} </h2>
         <h2 v-else-if = "!addTime" > GameOver {{timeIsOver()}} </h2>
-        <h2 v-else>Countdown: {{ timerCount }} </h2>
+        <h2 v-else>Time Remaining: {{ timerCount }} </h2>
         
     </div>
 </template>
 
 <script>
 export default {
-    name: "Countdown",
-    props: ["addTime"],
+    name: "Timer",
+    props: ["addTime", "seconds"],
     data() {
             return {
-                timerCount : 5
+                timerCount : this.seconds
             }
     },
     methods: {

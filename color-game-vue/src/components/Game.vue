@@ -11,11 +11,11 @@
       @selection="onSelection($event)"
     ></Screen>
     <br />
-    <!--  * The component key is used to re-render the component countdown, every time  
+    <!--  * The component key is used to re-render the component Timer, every time  
             that componentKey has change, the component are re-render
           * addTime - Boolean to verificate if has time
-    * Method to use the return of Countdown if there is time.-->
-    <Countdown :key="componentKey" :addTime="time" @timeIsOver="hasTime"></Countdown>
+    * Method to use the return of Timer if there is time.-->
+    <Timer :key="componentKey" :addTime="time" :seconds="difficulty" @timeIsOver="hasTime"></Timer>
 
     <!--  * If showResults, the Results component is rendered
           * playerHits: the player's hit are passed 
@@ -31,16 +31,19 @@
 <script>
 import Screen from "./Screen.vue";
 import Results from "./Results.vue";
-import Countdown from "./Countdown.vue";
+import Timer from "./Timer.vue";
 export default {
   name: "Game",
   components: {
     Screen,
     Results,
-    Countdown,
+    Timer,
   },
+  props: ['difficulty'],  
   data: () => {
     return {
+
+      
       /**
        * Sentences of color that will appear on the user's screen, where each contains a name's color.
        */
