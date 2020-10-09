@@ -14,15 +14,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 })
 export class TimerComponent {
   @Input() resetTime: boolean;
+  @Input() seconds: number;
   @Output() restartTime = new EventEmitter<boolean>();
   @Output() noTime = new EventEmitter<boolean>();
 
-  seconds = 5;
+  startTime:number;
+
+
 
   ngOnInit() {
+     this.startTime = this.seconds;
     const interval = setInterval(() => {
       if (this.resetTime) {
-        this.seconds = 5;
+        this.seconds = this.startTime;
         this.resetTime = false;
         this.restartTime.emit(true);
       }

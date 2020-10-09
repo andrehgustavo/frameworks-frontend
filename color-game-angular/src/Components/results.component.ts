@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core'
     <h2>Hits: {{playerHits}}</h2>
     </div>
     <div>
-      <button class="colorful-button" (click)="refreshPage()">Reiniciar o jogo</button>
+      <button class="colorful-button" (click)="refreshPage()">Restart Game</button>
     </div>
   `
 })

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'game',
@@ -18,6 +18,7 @@ import { Component } from '@angular/core'
               >
       </screen>
       <timer  [resetTime]="resetTime"
+              [seconds]="difficulty"
               (restartTime)="stopResetTime($event)"
               (noTime)="timeOver($event)"
               >
@@ -26,6 +27,7 @@ import { Component } from '@angular/core'
   `
 })
 export class GameComponent {
+  @Input() difficulty: number;
   options = ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
   showResults = false;
   resetTime = false;
@@ -102,6 +104,7 @@ export class GameComponent {
 
   ngOnInit() {
     this.shuffleAll();
+    console.log(this.difficulty)
   }
 
 
