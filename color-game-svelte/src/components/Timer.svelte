@@ -13,13 +13,14 @@
     const dispatcher = createEventDispatcher()
 
     export let resetTime;
-    let seconds = 5
+    export let seconds;
+    let startTime = seconds;
 
 
     onMount(() => {
 		const interval = setInterval(() => {
             if (resetTime) {
-                seconds = 5;
+                seconds = startTime;
                 resetTime = false;
                 dispatcher('stop', true)
             }

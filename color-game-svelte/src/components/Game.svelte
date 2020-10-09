@@ -3,6 +3,7 @@
     import Screen from "./Screen.svelte";
     import Timer from "./Timer.svelte";
 
+    export let difficulty;
     let showResults = false;
     let rightColor = "";
     let resetTime = false;
@@ -117,6 +118,6 @@
     <Results {rightColor} {playerHits}/>
 {:else}
     <Screen {options} {rightColor} on:userOption={next} />
-    <Timer {resetTime} on:noTime={timeIsOver} on:stop={stopResetTime}/>
+    <Timer seconds = {difficulty} {resetTime} on:noTime={timeIsOver} on:stop={stopResetTime}/>
 {/if}
 

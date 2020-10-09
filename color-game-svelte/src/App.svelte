@@ -1,7 +1,7 @@
 <script>
-	import Game from './components/Game.svelte';
+	import Home from './components/Home.svelte';
 </script>
 
 <main>
-	<Game/>
+	<Home/>
 </main>
