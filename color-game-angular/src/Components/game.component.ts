@@ -104,7 +104,6 @@ export class GameComponent {
 
   ngOnInit() {
     this.shuffleAll();
-    console.log(this.difficulty)
   }
 
 
