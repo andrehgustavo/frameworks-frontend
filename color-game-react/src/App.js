@@ -1,10 +1,10 @@
 import React from 'react';
-import Game from './components/Game';
+import Home from './components/Home';
 
 
 function App() {
 
-  return <Game />
+  return <Home />
 
 }
 

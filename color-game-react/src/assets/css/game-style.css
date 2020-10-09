@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
 body {
-  background-color: #282c34;
+  background-color: #000;
   color: white;
   padding: 40px;
   text-align: center;
@@ -73,4 +73,108 @@ body {
   0% { background-position: 0 0; }
   50% { background-position: 400% 0; }
   100% { background-position: 0 0; }
+}
+
+.container-img{
+  text-align: center;
+}
+.container-img .center{
+  vertical-align: middle;
+}
+
+.card{
+  background-color: white;
+  border-radius: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: justify;
+  color: #000;
+}
+
+.card-text{
+  position: relative;
+  padding: 30px 20px 30px 20px;
+}
+
+.difficulty{
+  margin-top: 50px;
+}
+
+.rowCard {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rowCard50 {
+  width: 50%;
+}
+
+img{
+  width: 70%;
+}
+
+section{
+  overflow: hidden;
+}
+
+section:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: hue;
+  animation: animate 20s linear infinite;
+}
+@keyframes animate
+{
+  0%
+  {
+      background: #f00;
+  }
+  10%
+  {
+      background: #ff0;
+  }
+  20%
+  {
+      background: linear-gradient(0deg, rgba(255,255,0,1) 0%, rgba(0,255,0,1) 100%);
+  }
+  30%
+  {
+      background: #0f0;
+  }
+  40%
+  {
+      background: #0ff;
+  }
+  50%
+  {
+      background: #f0f;
+  }
+  60%
+  {
+      background: #00f;
+  }
+  70%
+  {
+      background: #0158;
+  }
+  80%
+  {
+      background: rgb(255, 94, 0);
+  }
+  90%
+  {
+      background: rgb(2, 126, 33);
+  }
+  100%
+  {
+      background: rgb(89, 0, 255);
+  }
+ 
 }

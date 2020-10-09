@@ -127,7 +127,7 @@ class Game extends React.Component {
         return array;
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(previousResetTime != this.state.resetTime){
+        if(previousResetTime !== this.state.resetTime){
             this.options = this.shuffle(this.options)
             this.sentences = this.shuffle(this.sentences)
             this.random = this.randomNumber()
@@ -136,7 +136,7 @@ class Game extends React.Component {
     componentDidMount() {
         this.options = this.shuffle(this.options)
         this.sentences = this.shuffle(this.sentences)
-        this.random = this.randomNumber()
+        this.random = this.randomNumber()        
     }
 
 
@@ -144,7 +144,6 @@ class Game extends React.Component {
         //Constante que armazena o que será mostrado na tela, se o game continua ou se já acabou
         return (
             <div>
-                
                 {this.state.showResults ?
                     <Results
                         rightColor={this.state.rightColor}
@@ -157,7 +156,9 @@ class Game extends React.Component {
                         stopResetTime={this.stopResetTime}
                         nextFunction={this.next}
                         timeOver={this.timeOver}
-                        resetTime={this.state.resetTime}/>
+                        resetTime={this.state.resetTime}
+                        difficulty={this.props.difficulty}
+                        />
                     }
             </div>
         );

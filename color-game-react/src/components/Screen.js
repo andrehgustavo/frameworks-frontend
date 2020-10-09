@@ -28,7 +28,10 @@ function Screen(props) {
                 {options}
             </div>
             <div>
-                <Timer timeOver={() => props.timeOver(props.currentRightcolor)} resetTime={props.resetTime} stopResetTime={props.stopResetTime} />
+                <Timer  timeOver={() => props.timeOver(props.currentRightcolor)} 
+                        resetTime={props.resetTime} 
+                        stopResetTime={props.stopResetTime} 
+                        seconds = {props.difficulty}/>
             </div>
         </div>
     );

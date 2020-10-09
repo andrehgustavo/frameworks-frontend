@@ -7,7 +7,7 @@ import React, { Component } from 'react'
  */
 export default class Timer extends Component {
     state = {
-        seconds: 5
+        seconds: this.props.seconds
     }
 
     componentDidMount() {
@@ -17,7 +17,7 @@ export default class Timer extends Component {
             const { seconds } = this.state
             if(this.props.resetTime) {
                 this.setState({                    
-                    seconds : 6
+                    seconds : this.props.seconds
                 })
                 
                 this.props.stopResetTime()
