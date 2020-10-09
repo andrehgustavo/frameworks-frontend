@@ -12,7 +12,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
 })
 export class ScreenComponent {
   @Input() options: object[];
-  @Input() rightColor: object;
+  @Input() rightColor: {
+    colorNumber: string;
+    colorName: string;
+  };
   @Output() userOption = new EventEmitter<number>();
 
 }

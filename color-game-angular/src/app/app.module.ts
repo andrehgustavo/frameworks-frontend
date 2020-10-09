@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GameComponent } from '../Components/game.component';
 import { ScreenComponent } from '../Components/screen.component';
-import { ResultsComponent } from "../Components/results.component";
+import { ResultsComponent } from '../Components/results.component';
 import { TimerComponent } from "../Components/timer.components";
 
 @NgModule({

@@ -19,7 +19,10 @@ import { Component, Input } from '@angular/core'
   `
 })
 export class ResultsComponent {
-  @Input() rightColor: object
+  @Input() rightColor: {
+    colorNumber: string;
+    colorName: string;
+  };
   @Input() playerHits: number
 
   refreshPage() {
