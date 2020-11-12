@@ -1,5 +1,7 @@
 import React from 'react'
 import { requiredValidation, minLengthValidation } from '../forms/validations'
+import '../assets/css/player-form.css';
+import '../assets/css/game-style.css';
 
 const validate = {
     playerName: (value) => minLengthValidation(3, value),
@@ -57,23 +59,19 @@ export default class PlayerForm extends React.Component {
 
   render() {
     return (
-        <div>
+        <div className="form">
             <form onSubmit={this.onSubmit}>
                 <div>
                     <input name="playerName" value={this.state.playerName} placeholder="Name" onChange={this.onChange} onBlur={this.onBlur}/>
-                    <div className="error">{this.touched.playerName && this.errors.playerName}</div>
-                </div>
-                <div>
                     <input name="nickname" value={this.state.nickname} placeholder="Nickname" onChange={this.onChange} onBlur={this.onBlur}/>
+                    <div className="error">{this.touched && this.errors.playerName}</div>
                 </div>
                 <div>
                     <input name="birthday" value={this.state.birthday} placeholder="Birthday" onChange={this.onChange} onBlur={this.onBlur}/>
-                </div>
-                <div>
                     <input name="email" value={this.state.email} placeholder="E-mail" onChange={this.onChange} onBlur={this.onBlur}/>
                 </div>
-                <div>
-                    <input type="submit" value="Enviar" />
+                <div >
+                    <input id="submit" className="colorful-button" type="submit" value="Enviar" />
                 </div>
             </form>
       </div>

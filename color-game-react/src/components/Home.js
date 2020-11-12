@@ -4,6 +4,7 @@ import PlayerForm from './PlayerForm';
 import '../assets/css/game-style.css';
 let time = 0;
 
+
 class Home extends React.Component {
 
     state = {
@@ -63,7 +64,7 @@ class Home extends React.Component {
                                         word color, causing slower reaction times and an increase in
                                         errors.
                                         <br />
-                                                            <br />
+                                        <br />
                                         Therefore, the stroop effect reveals the degree of
                                         time that people have to say the name of the color
                                         with which the word is painted, instead of the real word.
