@@ -47,15 +47,18 @@ import { Component } from '@angular/core'
               </div>
           </div>
       </div>
+      
+      <player-form [player]="player"> </player-form> 
+
       <div class="time">
           <button class="colorful-button" (click)="startNewGame(time=12)">EASY</button>
           <button class="colorful-button" (click)="startNewGame(time=8)">MEDIUM</button>
           <button class="colorful-button" (click)="startNewGame(time=5)">HARD</button>
       </div>
-
     </ng-template>
   `
 })
+
 export class HomeComponent {
   startGame = false;
   time = 0;
@@ -64,5 +67,12 @@ export class HomeComponent {
     this.time = value;
     console.log(this.time)
     this.startGame = true;
+  }
+  
+  player = {
+    playername: ' ',
+    nickname: ' ',
+    birthday: ' ', 
+    email: ' ',
   }
 }

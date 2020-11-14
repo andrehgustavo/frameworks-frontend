@@ -1,0 +1,21 @@
+  
+ input {
+  font-family: 'Fjalla One', sans-serif;
+  width: 15%;
+  padding: 5px 5px;
+  margin: 5px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 30%;
+  padding: 5px 5px;
+  margin: 5px 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
