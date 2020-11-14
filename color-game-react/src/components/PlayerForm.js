@@ -70,6 +70,11 @@ export default class PlayerForm extends React.Component {
                     <input name="birthday" value={this.state.birthday} placeholder="Birthday" onChange={this.onChange} onBlur={this.onBlur}/>
                     <input name="email" value={this.state.email} placeholder="E-mail" onChange={this.onChange} onBlur={this.onBlur}/>
                 </div>
+                <div id="difficulty">
+                            <button className="difficulty-button">EASY</button>
+                            <button className="difficulty-button">MEDIUM</button>
+                            <button className="difficulty-button">HARD</button>
+                </div>
                 <div >
                     <input id="submit" className="colorful-button" type="submit" value="Enviar" />
                 </div>
