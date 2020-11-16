@@ -8,6 +8,7 @@ import { ScreenComponent } from './Components/screen.component';
 import { ResultsComponent } from './Components/results.component';
 import { TimerComponent } from "./Components/timer.components";
 import { HomeComponent } from "./Components/home.component";
+import { InputComponent } from "./Components/input.component";
 import {PlayerFormComponent } from "./Components/playerForm.component";
 
 @NgModule({
@@ -17,8 +18,9 @@ import {PlayerFormComponent } from "./Components/playerForm.component";
     GameComponent, 
     ScreenComponent, 
     ResultsComponent, 
-    TimerComponent, 
-    PlayerFormComponent
+    TimerComponent,
+    InputComponent, 
+    PlayerFormComponent,
   ],
   imports: [
     BrowserModule,

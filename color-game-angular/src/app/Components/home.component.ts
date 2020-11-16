@@ -16,7 +16,7 @@ import { Component } from '@angular/core'
       <div class="rowCard">
           <div class="rowCard50">
               <figure class="container-img">
-                  <section id="cerebro-image">
+                  <section id="cerebro-image"  style=" ">
                       <img src="../assets/images/cerebro.png" alt="colored brain" />
                   </section>
               </figure>
@@ -47,9 +47,7 @@ import { Component } from '@angular/core'
               </div>
           </div>
       </div>
-      
-      <player-form [player]="player"> </player-form> 
-
+        <player-form [player]="player"> </player-form> 
       <div class="time">
           <button class="colorful-button" (click)="startNewGame(time=12)">EASY</button>
           <button class="colorful-button" (click)="startNewGame(time=8)">MEDIUM</button>
@@ -70,9 +68,11 @@ export class HomeComponent {
   }
   
   player = {
-    playername: ' ',
-    nickname: ' ',
-    birthday: ' ', 
-    email: ' ',
+    playername: '',
+    nickname: '',
+    birthday: '', 
+    email: '',
   }
+
+
 }
