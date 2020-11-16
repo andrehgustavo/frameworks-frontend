@@ -14,7 +14,8 @@ interface PlayerType {
             <div> 
                 <input 
                     type="text"    
-                    placeholder="Player name"      
+                    placeholder="Player name" 
+                    onfocus   
                     #playername="ngModel"
                     name="playername"
                     [(ngModel)]="player.playername"
