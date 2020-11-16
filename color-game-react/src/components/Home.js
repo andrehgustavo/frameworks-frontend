@@ -16,7 +16,7 @@ class Home extends React.Component {
         this.time = value;
         console.log(time)
         this.setState({
-            startGame: true
+            startGame: false
         })
     }
 
@@ -37,7 +37,7 @@ class Home extends React.Component {
                             <h1>The Stroop Effect Game</h1>
                         </div>
                         <div className="rowCard">
-                            
+
                             <div className="rowCard50">
                                 <figure className="container-img">
                                     <section id="cerebro-image">
@@ -45,7 +45,7 @@ class Home extends React.Component {
                                     </section>
                                 </figure>
                             </div>
-                            
+
                             <div className="rowCard50">
                                 <div className="card">
                                     <div className="card-text">
@@ -70,16 +70,15 @@ class Home extends React.Component {
                                         with which the word is painted, instead of the real word.
                                     </div>
                                 </div>
-                            </div>                            
-                        </div>                        
+                            </div>
+                        </div>
                         <PlayerForm></PlayerForm>
-                        <div>
+{/*                         <div>
                             <button className="colorful-button" onClick={() => this.startNewGame(12)}>EASY</button>
                             <button className="colorful-button" onClick={() => this.startNewGame(8)}>MEDIUM</button>
                             <button className="colorful-button" onClick={() => this.startNewGame(5)}>HARD</button>
-                        </div>                     
-                        
-                    </div>                  
+                        </div> */}                            
+                    </div>
 
 
                 }
