@@ -1,4 +1,4 @@
-import { Component,Input, OnInit, Output, EventEmitter  } from '@angular/core'
+import { Component,Input, OnInit, Output, EventEmitter,  } from '@angular/core'
 
 interface PlayerType {
     playername: string,
@@ -9,7 +9,7 @@ interface PlayerType {
 @Component({
   selector: 'player-form',
   template:`   
-        <form #playerForm="ngForm" (ngSubmit)="playerForm.form.valid && playerForm.form.onSubmit()">
+        <form #playerForm="ngForm" (ngSubmit)="playerForm.form.valid && onSubmit()"  >
             <div> 
                 <player-input
                     type="input"
@@ -18,7 +18,7 @@ interface PlayerType {
                     minlength="3"
                     name="playername"
                     [(value)]="player.playername"
-                > </player-input>
+                ></player-input>
 
                 <player-input
                     type="input"
@@ -27,7 +27,7 @@ interface PlayerType {
                     minlength="3"
                     name="nickname"
                     [(value)]="player.nickname"
-                > </player-input>
+                ></player-input>
             </div>     
             <div> 
                 <player-input
@@ -46,10 +46,9 @@ interface PlayerType {
                     [(value)]="player.email"
                 > </player-input>
             </div>
-            
-           <div> 
-           <input type="submit" value="jogar" />
-           </div>
+            <div> 
+                <input type="submit" value="jogar" />
+            </div>
         </form> 
   `,
   
@@ -62,11 +61,8 @@ export class PlayerFormComponent {
     @Output() send = new EventEmitter()
     
     ngOnInit() {
-        const playername  = this.player.playername || ''
-        const nickname= this.player.nickname || ''
-        const birthday= this.player.birthday || ''
-        const email= this.player.email || ''
-         
+        const {playername, nickname, birthday, email }  = this.player || {}
+        
         this.player = {
           playername,
           nickname,
@@ -82,8 +78,9 @@ export class PlayerFormComponent {
           this.player.birthday,
           this.player.email
         ].filter((o) => o && o.trim() !== '')
+        console.log(obj)
         this.send.emit({
-           player:  this.player
+           player: obj
         })
-      }
+    }
 }
