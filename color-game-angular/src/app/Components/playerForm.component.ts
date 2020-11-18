@@ -1,5 +1,5 @@
 import { Component,Input, OnInit, Output, EventEmitter,  } from '@angular/core'
-
+import { PlayerService } from './player.service'
 interface PlayerType {
     playername: string,
     nickname: string,
@@ -51,10 +51,7 @@ interface PlayerType {
                 <button class="colorful-button" (click)="addLevel(12)"> EASY</button>
                 <button class="colorful-button" (click)="addLevel(8)"> MEDIUM</button>
                 <button class="colorful-button" (click)="addLevel(5)"> HARD</button>
-            </div>
-            <div class="div-bloco"> 
-                <input type="submit" class="submit" value="jogar"/>
-            </div>
+            </div> 
         </form> 
   `,
   
@@ -65,14 +62,13 @@ interface PlayerType {
 export class PlayerFormComponent {
     @Input() player: PlayerType
     @Output() send = new EventEmitter()
-    
+
     addLevel(value) {
         this.player.level = value;
     }
 
     ngOnInit() {
         const {playername, nickname, birthday, email, level }  = this.player || {}
-        
         this.player = {
           playername,
           nickname,
@@ -80,31 +76,18 @@ export class PlayerFormComponent {
           email,
           level
         }
-        console.log(level)
-
-
-
       }
 
     onSubmit() {
-
-        if( this.player.playername === '' || 
-            this.player.nickname === '' ||
-            this.player.birthday === '' ||
-            this.player.level === 0 ) {
-                alert('NECESSÁRIO PREENCHER O FORMULÁRIO')
+        if( this.player.playername == undefined || 
+            this.player.nickname == undefined ||
+            this.player.birthday == undefined ||
+            this.player.level == 0 )
+        {
+            alert('NECESSÁRIO PREENCHER O FORMULÁRIO')
         } else {
-            const obj = [
-                this.player.playername,
-                this.player.nickname,
-                this.player.birthday,
-                this.player.email,
-                this.player.level
-              ]
-              console.log(obj)
-              this.send.emit({
-                 player: obj
-              })
+            const obj = this.player
+              this.send.emit(obj)            
         }
     }
 }

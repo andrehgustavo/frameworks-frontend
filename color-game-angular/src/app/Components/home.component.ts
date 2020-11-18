@@ -1,14 +1,16 @@
 import { Component } from '@angular/core'
-
+import { PlayerService } from './player.service'
 @Component({
   selector: 'home',
   template:
     `
     <div *ngIf="startGame === true ; else noGame">
       <game
-        [difficulty]="time">
+        [difficulty]="pService.player.level"
+        [player]="pService.player">
       </game>
     </div>
+
     <ng-template #noGame>
       <div>
         <h1>The Stroop Effect Game</h1>
@@ -48,7 +50,10 @@ import { Component } from '@angular/core'
           </div>
       </div>
       <div>
-        <player-form [player]="player"> </player-form> 
+        <player-form 
+          [player]="pService.player"
+          (send) = "setPlayer($event)"
+          > </player-form> 
       </div>
     </ng-template>
   `
@@ -56,21 +61,23 @@ import { Component } from '@angular/core'
 
 export class HomeComponent {
   startGame = false;
-  time = 0;
 
-  addLevel(value) {
-    this.time = value;
-    console.log(this.time)
-    //this.startGame = true;
-  }
-  
-  player = {
-    playername: '',
-    nickname: '',
-    birthday: '', 
-    email: '',
-    level: 0,
+  constructor(public pService: PlayerService) {}
+
+  run() {
+    const player = this.getPlayer();
+    this.startGame = true
   }
 
+  setPlayer(value){
+    this.pService.setPlayer(value);
+    console.log("chamei o setPlayer e to com os dados")
+    console.log(value) 
+    this.run();
+  }
+
+  getPlayer(){
+    this.pService.getPlayer();
+  }
 
 }

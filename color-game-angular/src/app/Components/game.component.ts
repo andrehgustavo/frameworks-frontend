@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core'
       <results
         [rightColor] = "rightColor"
         [playerHits] = "playerHits"
+        [player] = "player"
       >
       </results>
     </div>
@@ -15,6 +16,7 @@ import { Component, Input } from '@angular/core'
       <screen [options]="options"
               [rightColor]="rightColor"
               (userOption)="next($event)"
+              [player] = "player"
               >
       </screen>
       <timer  [resetTime]="resetTime"
@@ -28,6 +30,8 @@ import { Component, Input } from '@angular/core'
 })
 export class GameComponent {
   @Input() difficulty: number;
+  @Input() player: {}
+
   options = ['RED', 'YELLOW', 'BLUE', 'GREEN', 'PURPLE', 'WHITE', 'GREY', 'ORANGE', 'PINK']
   showResults = false;
   resetTime = false;

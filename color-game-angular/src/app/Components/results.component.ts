@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core'
   template:
     `
   <div>
-    <h2>GameOver</h2>
+    <h2> GameOver {{player.playername}} </h2>
     <h3>
         The right answer is:
         <span
@@ -24,6 +24,7 @@ export class ResultsComponent {
     colorName: string;
   };
   @Input() playerHits: number
+  @Input() player: {}
 
   refreshPage() {
     location.reload();
