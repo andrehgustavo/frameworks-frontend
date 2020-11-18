@@ -46,7 +46,7 @@ body {
 }
 
 .colorful-button:active {
-  color: #fff
+  color: #fff;
 }
 
 .colorful-button:active:after {

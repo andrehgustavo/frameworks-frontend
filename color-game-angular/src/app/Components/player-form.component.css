@@ -3,23 +3,27 @@
     position: relative;
   }
 
- input {
-  font-family: 'Fjalla One', sans-serif;
-  width: 15%;
-  padding: 5px 5px;
-  margin: 8px 8px;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  
-}
+  div.div-bloco {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+  }
+
+  input.submit{
+    font-family: 'Fjalla One', sans-serif;
+    width: 588px;
+    padding: 5px 5px;
+    margin: 8px 8px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
 button {
-  width: 18%;
+  width: 188px;
   padding: 5px 5px;
   margin: 5px 5px;
-  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;

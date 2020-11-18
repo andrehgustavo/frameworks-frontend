@@ -33,27 +33,12 @@ import { NgModel } from '@angular/forms'
 
       input {
         font-family: 'Fjalla One', sans-serif;
-        width: 15%;
+        width: 282px;
         padding: 5px 5px;
         margin: 8px 8px;
-        display: inline-block;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
-      }
-      
-      button {
-        width: 18%;
-        padding: 5px 5px;
-        margin: 5px 5px;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-family: 'Fjalla One', sans-serif;
-      
-        pointer-events: auto;
-        cursor: default;
       }
     `
   ]
