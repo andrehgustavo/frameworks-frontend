@@ -3,7 +3,6 @@ import Timer from './Timer';
 
 
 function Screen(props) {
-    
     /**
      * Método para gerar botões clicáveis para cada uma das opções
      */
@@ -19,9 +18,10 @@ function Screen(props) {
     } */
 
     return (
-
+       
         <div>
             <div>
+                <h1> Lets go {props.playerName} </h1>
                 <h1 style={{color: props.currentRightcolor.colorNumber}}>{props.displayedColorName.colorName}</h1>
             </div>
             <div>

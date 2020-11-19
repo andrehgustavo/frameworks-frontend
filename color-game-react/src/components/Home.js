@@ -7,20 +7,34 @@ let time = 0;
 
 class Home extends React.Component {
 
-    state = {
-        startGame: false,
-    };
+    constructor(props) {
+        super(props)
+        this.state = {
+          startGame: false,
+          player: {
+            playerName: '',
+            nickname: '',
+            birthday: '',
+            email: '',
+            level: 0
+          }
+        }
+    }
 
-
-    startNewGame = (value) => {
-        this.time = value;
-        console.log(time)
+    startNewGame = () => {
         this.setState({
-            startGame: false
+            startGame: true
         })
     }
 
-
+    getSubmit(values){
+        this.setState({
+            player: values,
+        }, () => {
+            console.log(this.state)
+            this.startNewGame()
+        })
+    } 
 
     render() {
         //Constante que armazena o que será mostrado na tela, se o game continua ou se já acabou
@@ -29,7 +43,9 @@ class Home extends React.Component {
 
                 {this.state.startGame ?
                     <Game
-                        difficulty={this.time} />
+                        difficulty={this.state.player.level} 
+                        playerName={this.state.player.playerName}
+                    />
                     :
                     <div>
 
@@ -72,15 +88,11 @@ class Home extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <PlayerForm></PlayerForm>
-{/*                         <div>
-                            <button className="colorful-button" onClick={() => this.startNewGame(12)}>EASY</button>
-                            <button className="colorful-button" onClick={() => this.startNewGame(8)}>MEDIUM</button>
-                            <button className="colorful-button" onClick={() => this.startNewGame(5)}>HARD</button>
-                        </div> */}                            
+                        <PlayerForm 
+                            player={this.state.player}
+                            getSubmit={(player) => this.getSubmit(player)}
+                        ></PlayerForm>                          
                     </div>
-
-
                 }
             </div>
         );

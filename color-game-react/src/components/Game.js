@@ -147,7 +147,9 @@ class Game extends React.Component {
                 {this.state.showResults ?
                     <Results
                         rightColor={this.state.rightColor}
-                        playerHits={playerHits}/>
+                        playerHits={playerHits}
+                        playerName={this.props.playerName}
+                    />
                     :
                     <Screen
                         currentRightcolor={this.sentences[this.random]}
@@ -158,7 +160,8 @@ class Game extends React.Component {
                         timeOver={this.timeOver}
                         resetTime={this.state.resetTime}
                         difficulty={this.props.difficulty}
-                        />
+                        playerName={this.props.playerName}
+                    />
                     }
             </div>
         );
