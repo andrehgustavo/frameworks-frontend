@@ -94,14 +94,18 @@ export default class PlayerForm extends React.Component {
             <form onSubmit={this.onSubmit}>
                 <div className="form-div">
                     <input name="playerName" value={this.state.playerName} placeholder="Name" onChange={this.onChange} onBlur={this.onBlur}/>
-                    <div className="error">{this.state.errors.playerName}</div>
                     <input name="nickname" value={this.state.nickname} placeholder="Nickname" onChange={this.onChange} onBlur={this.onBlur}/>
+                </div>
+                <div className="form-div">                    
+                    <div className="error">{this.state.errors.playerName}</div>                    
                     <div className="error">{this.state.errors.nickname}</div>
                 </div>
                 <div className="form-div">
                   <input name="birthday" value={this.state.birthday} placeholder="Birthday" onChange={this.onChange} onBlur={this.onBlur}/>
-                  <div className="error">{this.state.errors.birthday}</div>
                   <input name="email" value={this.state.email} placeholder="E-mail" onChange={this.onChange} onBlur={this.onBlur}/>
+                </div>
+                <div className="form-div">
+                  <div className="error">{this.state.errors.birthday}</div>
                   <div className="error">{this.state.errors.email}</div>
                 </div>
                 <div id="difficulty">
@@ -119,7 +123,7 @@ export default class PlayerForm extends React.Component {
                   }})} >HARD</button>
                 </div>
                  <div >
-                    <input id="submit" className="colorful-button" type="submit" value="Jogar!" />
+                    <button id="submit" className="colorful-button" type="submit">Play!</button>
                 </div> 
             </form>
       </div>
