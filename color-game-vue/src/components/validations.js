@@ -6,7 +6,7 @@ export function minLengthValidation(minLength, value) {
   }
   
   export function requiredValidation(value) {
-    if (!value || value.trim() === '') {
+    if (!value || value.trim() == '') {
       return 'Este campo é obrigatório'
     }
     return null

@@ -8,7 +8,7 @@
         @blur="$emit('blur', $event.target.name)"
         class="input-form"
       />
-      <div class="error"> {{ error }}</div>
+      <div class="error">*** {{ error }}</div>
   </div>
 </template>
 
@@ -25,7 +25,8 @@ export default {
     'touched',
     'error',
     'modelValue'
-  ]
+  ],
+
   // methods: {
   //   onChange(event) {
   //     this.$emit('update:modelValue', event.target.value)
@@ -59,6 +60,8 @@ export default {
   color: red;
   font-style: italic;
   font-size: smaller;
+  align-items: center;
+  text-align: center;
 }
 .input-error {
   border: 1px solid red !important;

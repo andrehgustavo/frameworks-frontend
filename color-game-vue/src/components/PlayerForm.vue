@@ -7,7 +7,7 @@
                 placeholder="Player name"
                 isRequired="true"
                 :error="errors['playername']"
-                @input="touched['playername'] = true"
+                @input="touched['playername']=true"
                 @blur="checkField('playername')"
             />
             <Input
@@ -42,9 +42,9 @@
         </div>
         <div class="div-bloco">
             <div class="time">
-                <button name="level" value="12" class="colorful-button" >EASY</button>
-                <button name="level" value="8" class="colorful-button" >MEDIUM</button>
-                <button name="level" value="5" class="colorful-button" >HARD</button>
+                <button name="level" @click="setLevel(12)" class="colorful-button" >EASY</button>
+                <button name="level" @click="setLevel(8)" class="colorful-button">MEDIUM</button>
+                <button name="level" @click="setLevel(5)" class="colorful-button" >HARD</button>
             </div>    
         </div>
         <div class="div-bloco">
@@ -69,7 +69,9 @@ export default {
   props: ['player'],
   data() {
     const { playername, nickname, birthday, email, level } = this.player || {}
-   /*  const nickname = this.player.nickname || ''
+   /*  
+   const playername = this.player.playername || ''
+   const nickname = this.player.nickname || ''
     const birthday = this.player.birthday || ''
     const email = this.player.email || ''
     const level = this.player.level || 0 */
@@ -82,24 +84,36 @@ export default {
   },
   methods: {
     checkField(name) {
-      const value = this.p[name]
-      const error = validate[name] ? validate[name](value) : null
-     // const nameError = this.touched[name] ? error : null
-      this.errors[name] = error
+        const value = this.p[name]
+        //this.touched[name] = true
+
+        const error = validate[name] ? validate[name](value) : null
+        const  nameError = this.touched[name] ? error : null
+
+        this.errors[name] = nameError
     },
 
-    onSubmit() {
+    onSubmit(e) {
+        e.preventDefault();
       Object.keys(this.p).forEach((field) => {
         this.touched[field] = true
         this.checkField(field)
       })
+
       const errorsIsEmpty = !Object.values(this.errors).some((v) => v)
-      if (errorsIsEmpty) {
+      
+      console.log("erros ta vazio?",errorsIsEmpty)
+      
+       if (errorsIsEmpty) {
         this.$emit('update', {
-          player: this.p
+         player: this.p
         })
-        console.log(this.p)
+        console.log("enviando para home o player", this.p)
       }
+    },
+
+    setLevel(value){
+        this.p.level = value
     }
   }
 }

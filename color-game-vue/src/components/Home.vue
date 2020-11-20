@@ -81,7 +81,7 @@ export default {
     
     sendForm(values){
         this.player = values
-        console.log(this.player)
+        console.log("recebendo em home ",this.player)
         //this.startGame()
     }
   },
