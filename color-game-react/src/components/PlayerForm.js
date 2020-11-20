@@ -92,27 +92,28 @@ export default class PlayerForm extends React.Component {
     return (
         <div className="form">
             <form onSubmit={this.onSubmit}>
-                <div>
+                <div className="form-div">
                     <input name="playerName" value={this.state.playerName} placeholder="Name" onChange={this.onChange} onBlur={this.onBlur}/>
                     <div className="error">{this.state.errors.playerName}</div>
                     <input name="nickname" value={this.state.nickname} placeholder="Nickname" onChange={this.onChange} onBlur={this.onBlur}/>
                     <div className="error">{this.state.errors.nickname}</div>
                 </div>
-                <div>
+                <div className="form-div">
                   <input name="birthday" value={this.state.birthday} placeholder="Birthday" onChange={this.onChange} onBlur={this.onBlur}/>
                   <div className="error">{this.state.errors.birthday}</div>
                   <input name="email" value={this.state.email} placeholder="E-mail" onChange={this.onChange} onBlur={this.onBlur}/>
+                  <div className="error">{this.state.errors.email}</div>
                 </div>
                 <div id="difficulty">
-                  <button name="level" className="difficulty-button"  onClick={() => this.setState({ player: {
+                  <button name="level" type="button" className="difficulty-button"  onClick={() => this.setState({ player: {
                     ...this.state.player,
                     level: 12
                   }})} > EASY</button>
-                  <button name="level" className="difficulty-button"  onClick={() => this.setState({ player: {
+                  <button name="level" type="button" className="difficulty-button"  onClick={() => this.setState({ player: {
                     ...this.state.player,
                     level: 8
                   }})} >MEDIUM</button>
-                  <button name="level" className="difficulty-button"  onClick={() => this.setState({ player: {
+                  <button name="level" type="button" className="difficulty-button"  onClick={() => this.setState({ player: {
                     ...this.state.player,
                     level: 5
                   }})} >HARD</button>
