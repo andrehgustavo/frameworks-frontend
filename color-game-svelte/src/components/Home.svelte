@@ -1,19 +1,28 @@
 <script>
     import Game from "./Game.svelte";
+    import PlayerForm from "./PlayerForm.svelte";
 
     let startGame = false;
-    let time = 0;
+    let player = {};
     let src = "./images/cerebro.png";
 
     function startNewGame(value) {
-        time = value;
-        console.log(time)
         startGame = true;
     }
+
+    function sendForm(values) {
+        player = values.detail
+        console.log("recebendo em home ", player)
+        startNewGame()
+    }
+
 </script>
 
 {#if startGame}
-    <Game difficulty = {time}/>
+    <Game 
+        difficulty = {player.level}
+        playername = {player.playername}
+    />
 {:else}
     <div>
         <h1>The Stroop Effect Game</h1>
@@ -52,9 +61,10 @@
             </div>
         </div>
     </div>
-    <div class="time">
-        <button class="colorful-button" on:click={startNewGame(time=12)}>EASY</button>
-        <button class="colorful-button" on:click={startNewGame(time=8)}>MEDIUM</button>
-        <button class="colorful-button" on:click={startNewGame(time=5)}>HARD</button>
+    <div>
+        <PlayerForm 
+            player={player} 
+            on:update={sendForm} 
+        />
     </div>
 {/if}

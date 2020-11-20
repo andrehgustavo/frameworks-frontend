@@ -9,10 +9,15 @@ body {
   text-transform: uppercase;
 }
 
+.buttonlevel{
+  height: 50px;
+  width: 140px;
+}
+
 .colorful-button {
   font-family: 'Fjalla One', sans-serif;
   height: 50px;
-  width: 70px;
+  width: 100px;
   font-size: medium;
   margin-right: 10px;
   margin-top: 10px;
@@ -176,4 +181,56 @@ section:before{
       background: rgb(89, 0, 255);
   }
  
+}
+
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
+div .form-item {
+  display: flex;
+  margin: 5px 5px 5px 5px;
+  display: block;
+  background-color: beige;
+}
+
+  form {
+    z-index: 1000;
+    position: relative;
+  }
+
+  div.div-bloco {
+    margin: 5px 5px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+input {
+    font-family: 'Fjalla One', sans-serif;
+    width: 475px;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+  width: 150px;
+  padding: 5px 5px;
+  margin: 5px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: 'Fjalla One', sans-serif;
+  pointer-events: auto;
+  cursor: default;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+.error {
+  color: red;
+  font-style: italic;
+  font-size: 12px;
 }

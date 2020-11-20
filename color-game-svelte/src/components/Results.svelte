@@ -1,6 +1,7 @@
 <script>
     export let rightColor;
     export let playerHits;
+    export let playername;
 
     function refreshPage() {
         location.reload();
@@ -9,7 +10,7 @@
 
 <div>
     <div>
-        <h2>GameOver</h2>
+        <h2>GameOver {playername} </h2>
         <h3>
             The right answer is:
             <span

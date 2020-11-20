@@ -4,6 +4,7 @@
     import Timer from "./Timer.svelte";
 
     export let difficulty;
+    export let playername;
     let showResults = false;
     let rightColor = "";
     let resetTime = false;
@@ -115,9 +116,9 @@
 </script>
 
 {#if showResults || !hasTime}
-    <Results {rightColor} {playerHits}/>
+    <Results {rightColor} {playerHits} {playername}/>
 {:else}
-    <Screen {options} {rightColor} on:userOption={next} />
+    <Screen {options} {rightColor} {playername} on:userOption={next} />
     <Timer seconds = {difficulty} {resetTime} on:noTime={timeIsOver} on:stop={stopResetTime}/>
 {/if}
 
