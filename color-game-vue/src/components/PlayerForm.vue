@@ -105,9 +105,7 @@ export default {
       console.log("erros ta vazio?",errorsIsEmpty)
       
        if (errorsIsEmpty) {
-        this.$emit('update', {
-         player: this.p
-        })
+        this.$emit('update', this.p)
         console.log("enviando para home o player", this.p)
       }
     },

@@ -3,11 +3,12 @@
         <Game
         v-if="startGame"
         :difficulty="player.level"
-        :player="player.playername"
+        :playername="player.playername"
         ></Game>
         <div v-else>            
             <div>
         <h1>The Stroop Effect Game</h1>
+        {{ player.playername || 'testando' }}
     </div>
     <div class="rowCard">
         <div class="rowCard50">
@@ -43,12 +44,14 @@
             </div>
         </div>
     </div>
-        </div>
     <PlayerForm
         :player="player"
         @update="sendForm"
     ></PlayerForm>
+        </div>
+    
     </div>
+    
     
 </template>
 
@@ -82,7 +85,7 @@ export default {
     sendForm(values){
         this.player = values
         console.log("recebendo em home ",this.player)
-        //this.startGame()
+        this.startNewGame()
     }
   },
 };

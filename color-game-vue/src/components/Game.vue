@@ -8,6 +8,7 @@
       v-if="time"
       :rightColor="sentences[randomNumber(currentColor)].colorNumber"
       :options="options"
+      :playername="playername"
       @selection="onSelection($event)"
     ></Screen>
     <br />
@@ -24,6 +25,7 @@
       v-if="showResults"
       :playerHits="playerHits"
       :rightColor="sentences[currentColor]"
+      :playername="playername"
     ></Results>
   </div>
 </template>
@@ -39,7 +41,7 @@ export default {
     Results,
     Timer,
   },
-  props: ['difficulty'],  
+  props: ['difficulty', 'playername'],  
   data: () => {
     return {
 

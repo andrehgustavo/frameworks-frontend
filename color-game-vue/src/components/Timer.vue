@@ -1,8 +1,8 @@
 <template>
     <div>
         
-        <h2 v-if = "timerCount == 0" > GameOver {{timeIsOver()}} </h2>
-        <h2 v-else-if = "!addTime" > GameOver {{timeIsOver()}} </h2>
+        <h2 v-if = "timerCount == 0" >  {{timeIsOver()}} </h2>
+        <h2 v-else-if = "!addTime" >  {{timeIsOver()}} </h2>
         <h2 v-else>Time Remaining: {{ timerCount }} </h2>
         
     </div>

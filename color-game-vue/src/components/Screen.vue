@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1> Let's go {{ playername }} </h1>
     <h1 :style="{color: rightColor}">{{ shuffle(options)[0] }}</h1>
     <button class="colorful-button" v-for="opt in shuffle(options)" :key="opt" @click="selected(opt)">{{ opt }}</button>
   </div>
@@ -8,7 +9,7 @@
 <script>
 export default {
   name: "Screen",
-  props: ["rightColor", "options"],
+  props: ["rightColor", "options", 'playername'],
   methods: {
     selected: function(option) {
       console.log("você clicou em ", option);
