@@ -2,7 +2,8 @@
     <div>
         <Game
         v-if="startGame"
-        :difficulty="time"
+        :difficulty="player.level"
+        :player="player.playername"
         ></Game>
         <div v-else>            
             <div>
@@ -42,36 +43,47 @@
             </div>
         </div>
     </div>
-    <div class="time">
-        <button class="colorful-button" @click={startNewGame(12)}>EASY</button>
-        <button class="colorful-button" @click={startNewGame(8)}>MEDIUM</button>
-        <button class="colorful-button" @click={startNewGame(5)}>HARD</button>
-    </div>
         </div>
+    <PlayerForm
+        :player="player"
+        @update="sendForm"
+    ></PlayerForm>
     </div>
+    
 </template>
 
 <script>
 import Game from "./Game.vue";
+import PlayerForm from './PlayerForm';
+
 export default {
   name: "Home",
   components: {
     Game,
+    PlayerForm
   },
   data: () => {
     return {        
         startGame: false,
-        time:0
+        player: {
+            playername: '',
+            nickname: '',
+            birthday: '',
+            email: '',
+            level: 0 
+        }
     }
-
   },
   methods: {
-      startNewGame(value) {
-        this.time = value;
-        console.log(this.time)
+    startNewGame() {
         this.startGame = true;
+    },
+    
+    sendForm(values){
+        this.player = values
+        console.log(this.player)
+        //this.startGame()
     }
-
   },
 };
 </script>
