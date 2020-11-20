@@ -36,9 +36,9 @@
         />
     </div>
     <div class="time">
-        <button class="colorful-button" class="buttonlevel" on:click={() => setLevel(12)}> EASY</button>
-        <button class="colorful-button" class="buttonlevel" on:click={() => setLevel(8)}> MEDIUM</button>
-        <button class="colorful-button" class="buttonlevel" on:click={() => setLevel(5)}> HARD</button>
+        <button class="colorful-button buttonlevel" on:click={() => setLevel(12)}> EASY</button>
+        <button class="colorful-button buttonlevel" on:click={() => setLevel(8)}> MEDIUM</button>
+        <button class="colorful-button buttonlevel" on:click={() => setLevel(5)}> HARD</button>
     </div>
     <div class="div-bloco"> 
 	    <input type="submit" value="Jogar">
