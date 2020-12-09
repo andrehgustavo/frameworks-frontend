@@ -8,7 +8,7 @@
         @blur="$emit('blur', $event.target.name)"
         class="input-form"
       />
-      <div class="error">*** {{ error }}</div>
+      <div class="error"> {{ error }}  </div>
   </div>
 </template>
 
@@ -16,38 +16,13 @@
 <script scoped>
 export default {
   props: [
-    'type', // input (detfault) ou textarea
-    'label', // label (opcional)
+    'type', 
     'placeholder',
-    // 'onChange',
-    // 'onBlur',
     'isRequired',
     'touched',
     'error',
     'modelValue'
   ],
-
-  // methods: {
-  //   onChange(event) {
-  //     this.$emit('update:modelValue', event.target.value)
-  //     // this.$emit('change', this.name)
-  //   }
-  // }
-  // data() {
-  //   console.log(this.values)
-
-  //   return {
-  //     value: this.values[this.name]
-  //   }
-  // },
-  // computed: {
-  //   value() {
-  //     return this.values[this.name]
-  //   },
-  //   updateName() {
-  //     return `update:${this.name}`
-  //   }
-  // }
 }
 </script>
 

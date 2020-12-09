@@ -86,11 +86,11 @@ export default {
     checkField(name) {
         const value = this.p[name]
         //this.touched[name] = true
-
         const error = validate[name] ? validate[name](value) : null
-        const  nameError = this.touched[name] ? error : null
-
+        const  nameError = error
         this.errors[name] = nameError
+  
+        console.log("Errors: ", this.errors)
     },
 
     onSubmit(e) {

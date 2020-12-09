@@ -1,6 +1,6 @@
 export function minLengthValidation(minLength, value) {
     if (!value || value.trim().length < minLength) {
-      return `Este campo requer pelo menos ${minLength} caracteres`
+      return `Este campo requer pelo menos ${minLength} caracteres   `
     }
     return null
   }
