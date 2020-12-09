@@ -42,13 +42,13 @@
         </div>
         <div class="div-bloco">
             <div class="time">
-                <button name="level" @click="setLevel(12)" class="colorful-button" >EASY</button>
-                <button name="level" @click="setLevel(8)" class="colorful-button">MEDIUM</button>
-                <button name="level" @click="setLevel(5)" class="colorful-button" >HARD</button>
+                <button name="level" type="button" @click="setLevel(12)" class="difficulty-button" >EASY</button>
+                <button name="level" type="button" @click="setLevel(8)" class="difficulty-button">MEDIUM</button>
+                <button name="level" type="button" @click="setLevel(5)" class="difficulty-button" >HARD</button>
             </div>    
         </div>
         <div class="div-bloco">
-            <input type="submit" value="jogar" />
+            <button type="submit" class="colorful-button">Play</button>
         </div>
   </form>
 </template>
