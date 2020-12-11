@@ -3,6 +3,8 @@ import { requiredValidation, minLengthValidation } from '../forms/validations'
 import '../assets/css/player-form.css';
 import '../assets/css/game-style.css';
 
+
+
 const validate = {
     playerName: (value) => minLengthValidation(3, value),
     nickname: requiredValidation,
@@ -11,7 +13,9 @@ const validate = {
   }
 
 export default class PlayerForm extends React.Component {
+
   constructor(props) {
+    
     super(props)
     this.state = {
       player: {
@@ -27,6 +31,9 @@ export default class PlayerForm extends React.Component {
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.onBlur = this.onBlur.bind(this)
+  
+   
+  
   }
 
   onChange(event) {
@@ -52,7 +59,8 @@ export default class PlayerForm extends React.Component {
     }))
   }
 
-  onSubmit(event) {
+  onSubmit(event) { 
+   
     event.preventDefault()
     const player = this.state.player
     //validando
@@ -85,6 +93,8 @@ export default class PlayerForm extends React.Component {
     if (errorsIsEmpty && touchedAll && allTrue) {
       this.props.getSubmit(player)
     }
+
+   
   }
 
   render() {
@@ -123,6 +133,7 @@ export default class PlayerForm extends React.Component {
                   }})} >HARD</button>
                 </div>
                  <div >
+
                     <button id="submit" className="colorful-button" type="submit">Play!</button>
                 </div> 
             </form>

@@ -1,12 +1,12 @@
 import React from 'react';
 import Game from './Game';
+
 import PlayerForm from './PlayerForm';
 import '../assets/css/game-style.css';
 let time = 0;
 
-
 class Home extends React.Component {
-
+    
     constructor(props) {
         super(props)
         this.state = {
@@ -22,9 +22,11 @@ class Home extends React.Component {
     }
 
     startNewGame = () => {
-        this.setState({
+        /* this.setState({
             startGame: true
-        })
+        }) */
+       
+        this.props.history.push(`/game/${this.state.player.playerName}/${this.state.player.level}`)
     }
 
     getSubmit(values){
@@ -41,12 +43,12 @@ class Home extends React.Component {
         return (
             <div>
 
-                {this.state.startGame ?
+                {/* {this.state.startGame ?
                     <Game
                         difficulty={this.state.player.level} 
                         playerName={this.state.player.playerName}
                     />
-                    :
+                    : */}
                     <div>
 
                         <div>
@@ -93,7 +95,7 @@ class Home extends React.Component {
                             getSubmit={(player) => this.getSubmit(player)}
                         ></PlayerForm>                          
                     </div>
-                }
+               {/*  } */}
             </div>
         );
     }

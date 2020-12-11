@@ -1,15 +1,18 @@
 import React from 'react';
+import { useParams } from 'react-router-dom'
 import Screen from './Screen';
 import Results from './Results';
 import '../assets/css/game-style.css';
 let playerHits= 0;
 let previousResetTime = true;
+
 class Game extends React.Component {
     /**
      * showResults - booleano - quando for positivo, o jogo mudará para a tela de resultados.
      * rightColor - Cor certa que está sendo mostrada em tela.
      * resetTime - booleano - será positivo quando o jogador acertar uma cor, fazendo que o tempo seja reiniciado.
-     */
+     */ 
+
     state = {
         showResults: false,
         rightColor: '',
@@ -126,6 +129,7 @@ class Game extends React.Component {
 
         return array;
     }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(previousResetTime !== this.state.resetTime){
             this.options = this.shuffle(this.options)
@@ -133,6 +137,7 @@ class Game extends React.Component {
             this.random = this.randomNumber()
         }
     }
+
     componentDidMount() {
         this.options = this.shuffle(this.options)
         this.sentences = this.shuffle(this.sentences)
@@ -142,13 +147,18 @@ class Game extends React.Component {
 
     render() {
         //Constante que armazena o que será mostrado na tela, se o game continua ou se já acabou
+        
+        const playerName = this.props.history.location.pathname.split('/')[2]
+        const level = this.props.history.location.pathname.split('/')[3]
+
         return (
             <div>
                 {this.state.showResults ?
                     <Results
                         rightColor={this.state.rightColor}
                         playerHits={playerHits}
-                        playerName={this.props.playerName}
+                       /*  playerName={this.props.playerName} */
+                       playerName = {playerName}
                     />
                     :
                     <Screen
@@ -159,8 +169,10 @@ class Game extends React.Component {
                         nextFunction={this.next}
                         timeOver={this.timeOver}
                         resetTime={this.state.resetTime}
-                        difficulty={this.props.difficulty}
-                        playerName={this.props.playerName}
+                        /* difficulty={this.props.difficulty}
+                        playerName={this.props.playerName} */                   
+                        difficulty = {level}
+                        playerName={playerName}
                     />
                     }
             </div>
