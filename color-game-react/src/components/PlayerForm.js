@@ -1,5 +1,5 @@
 import React from 'react'
-import { requiredValidation, minLengthValidation } from '../forms/validations'
+import { requiredValidation, minLengthValidation, emailValidation, ageValidation, levelValidation } from '../forms/validations'
 import '../assets/css/player-form.css';
 import '../assets/css/game-style.css';
 
@@ -8,8 +8,9 @@ import '../assets/css/game-style.css';
 const validate = {
     playerName: (value) => minLengthValidation(3, value),
     nickname: requiredValidation,
-    birthday: requiredValidation,
-    email: requiredValidation
+    birthday: ageValidation,
+    email: emailValidation,
+    level:levelValidation
   }
 
 export default class PlayerForm extends React.Component {
@@ -111,7 +112,7 @@ export default class PlayerForm extends React.Component {
                     <div className="error">{this.state.errors.nickname}</div>
                 </div>
                 <div className="form-div">
-                  <input name="birthday" value={this.state.birthday} placeholder="Birthday" onChange={this.onChange} onBlur={this.onBlur}/>
+                  <input name="birthday" value={this.state.birthday} placeholder="Birthday" type='date' onChange={this.onChange} onBlur={this.onBlur}/>
                   <input name="email" value={this.state.email} placeholder="E-mail" onChange={this.onChange} onBlur={this.onBlur}/>
                 </div>
                 <div className="form-div">
@@ -131,6 +132,9 @@ export default class PlayerForm extends React.Component {
                     ...this.state.player,
                     level: 5
                   }})} >HARD</button>
+                </div>
+                <div className="form-div">                    
+                    <div className="error">{this.state.errors.level}</div>
                 </div>
                  <div >
 
